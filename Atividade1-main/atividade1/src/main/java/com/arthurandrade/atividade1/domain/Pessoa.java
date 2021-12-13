@@ -15,19 +15,17 @@ import java.time.Instant;
 public class Pessoa {
 
     @Id
+    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "nome", length = 64)
+    @Column(name = "Nome", length = 64)
     private String nome;
-
     private Instant dataNascimento;
+    @Column(name = "Cpf", length = 255)
     private String cpf;
+    @Column(name = "Telefone", length = 255)
     private String telefone;
-    private String cep;
-    private String rua;
-    private String bairro;
-    private String cidade;
-    private String uf;
-    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Endereco", referencedColumnName = "Id")
+    private Endereco endereco;
 }

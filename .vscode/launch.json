@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Atividade1Application<atividade1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.arthurandrade.atividade1.Atividade1Application",
+            "projectName": "atividade1",
+            "args": ""
+        }
+    ]
+}
