@@ -4,7 +4,6 @@ package com.arthurandrade.atividade1.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -15,7 +14,6 @@ import java.time.Instant;
 public class Pessoa {
 
     @Id
-    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "Nome", length = 64)
@@ -25,7 +23,6 @@ public class Pessoa {
     private String cpf;
     @Column(name = "Telefone", length = 255)
     private String telefone;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Endereco", referencedColumnName = "Id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 }

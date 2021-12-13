@@ -4,18 +4,16 @@ package com.arthurandrade.atividade1.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
+import java.util.List;
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "table_endereco")
-
 public class Endereco {
 
-    @OneToOne(mappedBy = "table_endereco")
-    private Pessoa pessoa;
+    @Id
     @Column(name = "Cep", length = 255)
     private String cep;
     @Column(name = "Rua", length = 255)
@@ -26,5 +24,7 @@ public class Endereco {
     private String cidade;
     @Column(name = "Uf", length = 255)
     private String uf;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
+    private List<Pessoa> pessoa;
     
 }
