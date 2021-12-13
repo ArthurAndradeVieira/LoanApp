@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import javax.persistence.*;
-import java.time.Instant;
+
 
 @Data
 @AllArgsConstructor
@@ -18,11 +18,10 @@ public class Item {
 
     @Column(name = "nome", length = 64)
     private String nome;
-
-    private Instant dataEmprestimo;
-    private Instant dataDevolucao;
-    private String nomePessoaDona;
-    private String nomePessoaTemporaria;
     private String observacao;
-    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="emprestimo_id")
+    private Emprestimo emprestimo;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Pessoa pessoa;
 }

@@ -1,5 +1,6 @@
 package com.arthurandrade.atividade1.domain;
 
+import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -25,4 +26,6 @@ public class Pessoa {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    private List<Emprestimo> emprestimo;
 }
