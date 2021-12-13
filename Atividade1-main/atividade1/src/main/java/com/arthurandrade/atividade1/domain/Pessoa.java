@@ -23,5 +23,6 @@ public class Pessoa {
     @Column(name = "Telefone", length = 255)
     private String telefone;
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 }
