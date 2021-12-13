@@ -1,10 +1,8 @@
 package com.arthurandrade.atividade1.domain;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
 import javax.persistence.*;
 
 
